@@ -4,4 +4,4 @@
 - Queue
 - Linked List(Single, Double, Single Circular)
 - Searching (Linear, Binary)
-- Sorting (Selection, Insertion, Bubble, Merge, Quick)
+- Sorting (Selection, Insertion, Bubble, Merge, Quick, Counting)
