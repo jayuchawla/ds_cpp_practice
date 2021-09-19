@@ -1,5 +1,6 @@
 /*
-QUICK SORT: EACH RECURSIVE CALL FOCUSSES ON PLACING PIVOT ELEMENT(last used here) AT ITS CORRECT INDEX
+QUICK SORT: divide & conquer
+EACH RECURSIVE CALL FOCUSSES ON PLACING PIVOT ELEMENT(last used here) AT ITS CORRECT INDEX
 calling recursively on left subarray and right subarray of partition 
 inplace
 O(n*logn)
@@ -36,11 +37,10 @@ int findPartitionIndex(int *a, int start, int end) {
 void quickSort(int *a, int start, int end) {
     if(start >= end)
         return;
-    int partition = findPartitionIndex(a, start, end);
+    int partition = findP(a, start, end);
     quickSort(a, start, partition - 1);
     quickSort(a, partition + 1, end);
 }
-
 
 int main() {
     int num;
