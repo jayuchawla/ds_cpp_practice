@@ -45,7 +45,7 @@ void radixSort(int *a, int size) {
             op_array[count_array[(a[i] / current_radix) % 10]] = a[i];
             count_array[(a[i] / current_radix) % 10]--;
         }
-        
+        // copy radix sorted elements to input array        
         for(int i = 0; i<size; i++) {
             a[i] = op_array[i];
             // cout<<a[i]<<endl;
