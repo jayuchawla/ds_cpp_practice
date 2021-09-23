@@ -67,13 +67,11 @@ string infixToPostfix(string infix) {
                 else if(precedenceOfOperator(infix[i]) < precedenceOfOperator(s.top())) {
                     // *************NOTE************* :: why <= ? '=' is used for the case when top has equal precedence to incoming op (L to R associativity logic) -> Keep in mind R to L associativity is not taken ... WHY ? since only '^' has R to L and '^' has most precedence -> Logically this case wont exist for '^' 
                     while(!s.empty() && precedenceOfOperator(infix[i]) <= precedenceOfOperator(s.top())) {
-                        // if precedence clashes and if associativity of incoming operator is right to left (only applicable when come operator with precedence = '^' is introduced)
-                        if(precedenceOfOperator(infix[i]) == precedenceOfOperator(s.top()) && strcmp(associativityOfOperator(infix[i]).c_str(),"rl") == 0) {
-                            s.push(infix[i]);
-                        } else {
-                            postfix += s.top();
-                            s.pop();
-                        }
+                        // if precedence clashes and if associativity of incoming operator is right to left (only applicable when some operator with precedence = '^' is introduced) simply break and push incoming operator
+                        if(precedenceOfOperator(infix[i]) == precedenceOfOperator(s.top()) && strcmp(associativityOfOperator(infix[i]).c_str(), "rl") == 0)
+                            break;
+                        postfix += s.top();a
+                        s.pop();
                     }
                     // finally push the incoming operator
                     s.push(infix[i]);
@@ -100,7 +98,7 @@ string infixToPostfix(string infix) {
             else
                 postfix += infix[i];
     }
-    // pop out all remaining operators
+    // pop out all remaining operators, // why isOperator check ? to avoid adding '(' to prefix expression
     while(!s.empty() && isOperator(s.top())) {
             postfix += s.top();
             s.pop();
