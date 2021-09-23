@@ -66,11 +66,11 @@ string infixToPostfix(string infix) {
                 // if prec(incoming op) <  prec(stack top) -> keep popping until top has operator with low precedence
                 else if(precedenceOfOperator(infix[i]) < precedenceOfOperator(s.top())) {
                     // *************NOTE************* :: why <= ? '=' is used for the case when top has equal precedence to incoming op (L to R associativity logic) -> Keep in mind R to L associativity is not taken ... WHY ? since only '^' has R to L and '^' has most precedence -> Logically this case wont exist for '^' 
-                    while(!s.empty() && precedenceOfOperator(infix[i]) <= precedenceOfOperator(s.top())) {
+                    while(!s.empty() && s.top()!='(' && precedenceOfOperator(infix[i]) <= precedenceOfOperator(s.top())) {
                         // if precedence clashes and if associativity of incoming operator is right to left (only applicable when some operator with precedence = '^' is introduced) simply break and push incoming operator
                         if(precedenceOfOperator(infix[i]) == precedenceOfOperator(s.top()) && strcmp(associativityOfOperator(infix[i]).c_str(), "rl") == 0)
                             break;
-                        postfix += s.top();a
+                        postfix += s.top();
                         s.pop();
                     }
                     // finally push the incoming operator
