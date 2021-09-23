@@ -84,14 +84,13 @@ string infixToPostfix(string infix) {
                         s.push(infix[i]);
                     }
                 }
-            } 
-            // if stack empty, simply push incoming operator to stack
+                // if stack empty, simply push incoming operator to stack
+                else
+                    s.push(infix[i]);
+            }
+            // if not (, ), or operator simply append to result
             else
-                s.push(infix[i]);
-        }
-        // if not (, ), or operator simply append to result
-        else
-            postfix += infix[i];
+                postfix += infix[i];
     }
     // pop out all remaining operators
     while(!s.empty() && isOperator(s.top())) {
