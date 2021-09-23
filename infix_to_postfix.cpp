@@ -1,3 +1,11 @@
+/*
+Traverse infix string from L to R
+precedence(incoming-op) > prec(stack-top) -> push incoming-op
+precedence(incoming-op) < prec(stack-top) -> keep popping (and append to postfix) until precedence(incoming-op) <= prec(stack-top) is True (WHY '=' -> read in comments below)
+in case of precedence clash -> apply ASSOCIATIVITY
+Associativity L->R('+','-' or '*','/'): keep popping until precedence is not equal (then finally push incoming-op)
+Associativity R->L('^'): keep pushing until precedence is not equal (then finally push incoming-op)
+*/
 #include <iostream>
 #include <string>
 #include <string.h>
