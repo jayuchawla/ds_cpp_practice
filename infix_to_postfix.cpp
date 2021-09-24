@@ -4,7 +4,7 @@ precedence(incoming-op) > prec(stack-top) -> push incoming-op
 precedence(incoming-op) < prec(stack-top) -> keep popping (and append to postfix) until precedence(incoming-op) <= prec(stack-top) is True (WHY '=' -> read in comments below)
 in case of precedence clash -> apply ASSOCIATIVITY
 Associativity L->R('+','-' or '*','/'): keep popping until precedence is not equal (then finally push incoming-op)
-Associativity R->L('^'): keep pushing until precedence is not equal (then finally push incoming-op)
+Associativity R->L('^'): simply pushing incoming-op
 */
 #include <iostream>
 #include <string>
@@ -53,7 +53,7 @@ string infixToPostfix(string infix) {
             // '(' should not be appended in output, discard '(' on top of stack
             s.pop();
         }
-        // check if incoming operator is an operator
+        // check if incoming character is an operator
         else if(isOperator(infix[i])) {
             // check if stack not empty, else simply push the incoming operator
             if(!s.empty()) {
