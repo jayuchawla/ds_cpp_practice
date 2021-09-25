@@ -1,3 +1,13 @@
+/*
+Either of deq or enq operation has to be costly, here we make dequeue operation costly
+the idea is to use a main stack and a temporary stack for dequeue
+enqueue -> keep pushing to stack
+dequeue ->  pop each element from main stack while pushing it to temp stack
+            pop and store top of temp
+            push back remaining in temp to s
+            return stored element
+
+*/
 #include <iostream>
 #include <stack>
 using namespace std;
@@ -7,7 +17,7 @@ class QueueStack {
         stack<int> s;
     public:
         QueueStack(){};
-        
+
         void enqueue(int d) {
             s.push(d);
         }
