@@ -68,6 +68,10 @@ class QueueSLL {
         }
 
         void print() {
+            if(isEmpty()) {
+                cout<<"Blank queue"<<endl;
+                return;
+            }
             Node* temp = front;
             while(temp!=NULL) {
                 cout<<temp->data<<endl;
@@ -80,6 +84,7 @@ int main() {
     q.enqueue(5);
     q.enqueue(55);
     q.enqueue(57);
+    q.dequeue();
     q.dequeue();
     q.dequeue();
     q.print();

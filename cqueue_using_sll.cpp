@@ -46,8 +46,10 @@ class QueueSLL {
         }
 
         int dequeue() {
-            if(isEmpty())
+            if(isEmpty()) {
                 cout<<"Empty queue!"<<endl;
+                return -1;
+            }
 
             Node *temp = front; int d = front->data;
             // reset condition is different here than normal queue
@@ -63,12 +65,14 @@ class QueueSLL {
         }
 
         int count() {
+            if(isEmpty())
+                return 0;
             int count = 0;
             Node* temp = front;
-            while(temp!=NULL) {
-                count++;
+            do {
+                cout<<temp->data<<endl;
                 temp = temp->next;
-            }
+            } while(temp!=front);
             return count;
         }
 
