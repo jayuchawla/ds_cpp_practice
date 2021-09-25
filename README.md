@@ -1,7 +1,8 @@
 ### Data Structures practice in C++
 #### Topics
-- Stack 
+- Stack
   - Infix to Prefix / Postfix conversion
+  - Postfix / Prefix to Infix conversion
 - Queue
 - Linked List(Single, Double, Single Circular)
 - Searching (Linear, Binary)
