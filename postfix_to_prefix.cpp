@@ -9,19 +9,19 @@ bool isOperator(char op) {
 }
 
 string postfix_to_prefix(string postfix) {
-    stack<string> operandStack, prefixStack;
+    stack<string> s;
 
     for(int i = 0; i < postfix.length(); i++) {
         if(!isOperator(postfix[i])) {
-            operandStack.push(string(1, postfix[i]).c_str());
+            s.push(string(1, postfix[i]).c_str());
         } else {
-            string op1 = operandStack.top(); operandStack.pop();
-            string op2 = operandStack.top(); operandStack.pop();
-            operandStack.push(postfix[i] + op2 + op1);
+            string op1 = s.top(); s.pop();
+            string op2 = s.top(); s.pop();
+            s.push(postfix[i] + op2 + op1);
         }
     }
-    string prefix = operandStack.top();
-    operandStack.pop();
+    string prefix = s.top();
+    s.pop();
     return prefix;
 }
 
