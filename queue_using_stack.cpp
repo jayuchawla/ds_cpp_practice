@@ -6,7 +6,6 @@ dequeue ->  pop each element from main stack while pushing it to temp stack
             pop and store top of temp
             push back remaining in temp to s
             return stored element
-
 */
 #include <iostream>
 #include <stack>
